@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>折れ線グラフ</h1>
-    <canvas id="myLineChart"></canvas>
+    <canvas id="chart-line"></canvas>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <script>
@@ -17,7 +16,7 @@
         const humid = data[1]
         const date = data[2]
 
-        var ctx = document.getElementById("myLineChart");
+        var ctx = document.getElementById("chart-line");
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -26,34 +25,36 @@
                 {
                 label: '温度（℃）',
                 data: temp, 
-                borderColor: "rgba(255,0,0,1)",
+                lineTension: 0,
+                borderColor: "rgba(255,0,0,1)", 
                 backgroundColor: "rgba(0,0,0,0)"
                 },
                 {
                 label: '湿度（%）',
                 data: humid, 
+                lineTension: 0,
                 borderColor: "rgba(0,0,255,1)",
                 backgroundColor: "rgba(0,0,0,0)"
                 }
             ],
             },
             options: {
-            title: {
-                display: true,
-                text: '気温（8月1日~8月7日）'
-            },
-            scales: {
-                yAxes: [{
-                ticks: {
-                    suggestedMax: 40,
-                    suggestedMin: 0,
-                    stepSize: 10,
-                    callback: function(value, index, values){
-                    return  value +  '度'
-                    }
-                }
-                }]
-            },
+                title: {
+                    display: true,
+                    text: '（' + date[0] + '~' + date.slice(-1)[0] + '）' 
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            suggestedMax: 60,
+                            suggestedMin: 0,
+                            stepSize: 10,
+                            callback: function(value, index, values){
+                            return  value +  '度'
+                            }
+                        }
+                    }]
+                },
             }
         });
   </script>

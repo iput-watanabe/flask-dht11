@@ -1,10 +1,10 @@
 import csv
 
-CSV_FILENAME = './temp_humid_date.csv'
+CSV_FILENAME = 'server/temp_humid_date.csv'
 
-temp_data = []
-humid_data = []
-date_data = []
+temp_data = [] 
+humid_data = [] 
+date_data = [] 
 sensor_data =[temp_data, humid_data, date_data]
 
 def get_csv_data():
