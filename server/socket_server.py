@@ -5,7 +5,7 @@ import csv
 #SERVER = 'localhost'
 SERVER = 'localhost'
 WAITING_PORT = 8765
-CSV_FILENAME = '/server/temp_humid_date.csv'
+CSV_FILENAME = 'server/temp_humid_date.csv'
 
 LOOP_INTERVAL = 5
 
